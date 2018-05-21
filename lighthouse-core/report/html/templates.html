@@ -405,28 +405,13 @@
     }
     .lh-header-bg {
       background-color: var(--header-bg-color);
-      height: var(--report-header-height);
+      height: 50px;
       left: 0;
       position: absolute;
       top: 0;
       width: 100%;
-      will-change: transform;
     }
-    .lh-lighthouse {
-      position: absolute;
-      top: var(--report-header-height);
-      right: 50%;
-      transform: translate3d(calc(var(--report-content-width) / 2), -100%, 0);
-      opacity: 1;
-      transform-origin: bottom right;
-      will-change: transform, opacity;
-    }
-    .lh-header {
-      width: 100%;
-      height: var(--report-header-height);
-      max-width: 100%; /* support text-overflow on url */
-      position: relative;
-    }
+
     .lh-metadata {
       flex: 1 1 0;
       padding: calc(var(--section-padding) / 2);
@@ -443,11 +428,7 @@
     .lh-metadata__url {
       color: currentColor;
     }
-    .lh-scores-wrapper {
-      margin-top: -30px;
-      transform: translateZ(1px);
-    }
-    .lh-scores-wrapper__background,
+
     .lh-scores-wrapper__shadow {
       position: absolute;
       top: 0;
@@ -455,13 +436,10 @@
       width: 100%;
       height: 100%;
       background: white;
-      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
       opacity: 1;
       border-radius: 8px;
       will-change: opacity, transform;
       transform-origin: top;
-    }
-    .lh-scores-wrapper__shadow {
       opacity: 0;
       border-radius: 4px;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 2px -2px;
@@ -505,80 +483,7 @@
       white-space: nowrap;
       margin-right: 2px;
     }
-    .lh-export {
-      position: absolute;
-      right: var(--section-indent);
-      transform: translateY(0);
-      top: calc(var(--section-padding) / 2);
-      will-change: transform;
-      z-index: 2;
-    }
-    .lh-export__button {
-      background-color: #fff;
-      border: 1px solid #dadada;
-      border-radius: 2px;
-      cursor: pointer;
-      outline: none;
-      height: 32px;
-      width: 48px;
-      background-repeat: no-repeat;
-      background-size: 20px;
-      background-position: 50% 50%;
-      will-change: transform;
-    }
-    .lh-export__button:focus,
-    .lh-export__button.active {
-      box-shadow: 1px 1px 3px #ccc;
-    }
-    .lh-export__button.active + .lh-export__dropdown {
-      opacity: 1;
-      clip: rect(0, 164px, 200px, 0);
-    }
-    .lh-export__dropdown {
-      position: absolute;
-      background-color: #fff;
-      border: 1px solid var(--report-border-color);
-      border-radius: 3px;
-      padding: calc(var(--default-padding) / 2) 0;
-      cursor: pointer;
-      top: 36px;
-      right: 0;
-      box-shadow: 1px 1px 3px #ccc;
-      min-width: 125px;
-      clip: rect(0, 164px, 0, 0);
-      opacity: 0;
-      transition: all 200ms cubic-bezier(0,0,0.2,1);
-    }
-    .lh-export__dropdown a {
-      display: block;
-      color: currentColor;
-      text-decoration: none;
-      white-space: nowrap;
-      padding: 0 12px;
-      line-height: 2;
-    }
-    .lh-export__dropdown a:hover,
-    .lh-export__dropdown a:focus {
-      background-color: #efefef;
-      outline: none;
-    }
-    .lh-export__dropdown .report-icon {
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position: 8px 50%;
-      background-size: 18px;
-      background-color: transparent;
-      text-indent: 18px;
-    }
-    /* copy icon needs slight adjustments to look great */
-    .lh-export__dropdown .report-icon--copy {
-      background-size: 16px;
-      background-position: 9px 50%;
-    }
-    /* save-as-gist option hidden in report */
-    .lh-export__dropdown .lh-export--gist {
-      display: none;
-    }
+
     .lh-config {
       display: flex;
     }
@@ -610,95 +515,12 @@
       display: flex;
       align-items: center;
     }
-    @media screen and (max-width: 964px) {
-      .lh-export__dropdown {
-        right: 0;
-        left: initial;
-      }
-    }
-    @media print {
-      .lh-header {
-        position: static;
-        margin-left: 0;
-      }
-    }
-/*
-    TODO: Enable animating the clouds
-    .lh-lighthouse__clouds {
-      animation: panacross 30s linear infinite;
-      animation-play-state: paused;
-    }
-    @keyframes panacross {
-      0% { transform: translateX(0px); }
-      77% { transform: translateX(-680px); }
-      77.0001% { transform: translateX(195px); }
-      100% { transform: translateX(0px); }
-    } */
+    /*# sourceURL=header.css */
   </style>
   <div class="lh-header-bg"></div>
-  <div class="lh-lighthouse">
-    <svg width="217" height="148" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <mask id="a" x="-56" y="-54" width="284" height="202" maskUnits="userSpaceOnUse">
-          <path d="M-56-54h284v202H-56z" fill="#fff"/>
-        </mask>
-        <linearGradient id="b" x1="-525.16" y1="560.08" x2="-524.23" y2="560.08" gradientTransform="matrix(91 0 0 -77 47797 43181)" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#f1f3f4"/>
-          <stop offset="1" stop-color="#fff"/>
-        </linearGradient>
-      </defs>
-      <g mask="url(#a)">
-        <path d="M95 47h24v2H95z" fill="#ec5548"/>
-        <path d="M98 49h18v11H98z" fill="#fbc21b"/>
-        <path d="M95 59h24v7H95z" fill="#ec5548"/>
-        <path d="M97.63 66h19.74l2.63 47H95z" fill="#fff"/>
-        <path d="M107 38a10 10 0 0 1 10 10v1H97v-1a10 10 0 0 1 10-10zM96.77 82.23l21-10.7.63 11.87-22.31 11.87zM95 110.8L119.1 98l.9 14H95z" fill="#ec5548"/>
-        <path d="M0 148a177.58 177.58 0 0 1 217 0z" fill="#e8eaed"/>
-        <path d="M103 49a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5z" fill="#fef0c8"/>
-        <path d="M7 16l91 33.18v10L7 93z" fill="url(#b)"/>
-      </g>
-      <g mask="url(#a)" class="lh-lighthouse__clouds">
-        <path d="M60 .19A9.77 9.77 0 0 1 61.93 0a9.44 9.44 0 0 1 9.24 7.83A7.24 7.24 0 0 1 79 14.45v.73A7.37 7.37 0 0 1 76.2 21h-31a7.44 7.44 0 0 1-1.2-4.09 7.31 7.31 0 0 1 7.26-7.36 6.84 6.84 0 0 1 1.28.1v-.11A9.51 9.51 0 0 1 60 .19m79.78 22.31h-17.9a4.37 4.37 0 0 1-.63-2.25 4.2 4.2 0 0 1 4.16-4.25 4.37 4.37 0 0 1 .72.06V16a5.35 5.35 0 0 1 10.64-1h.33a4.2 4.2 0 0 1 4.15 4.25 4.29 4.29 0 0 1-1.47 3.25zM163 62h-24.15a5.1 5.1 0 0 1-.85-2.81 5.65 5.65 0 0 1 6.59-5.19v-.08a7.07 7.07 0 0 1 7.24-6.92 7.15 7.15 0 0 1 7.17 5.64h.44a5.46 5.46 0 0 1 5.6 5.32A5.19 5.19 0 0 1 163 62z" fill="#fff"/>
-      </g>
-    </svg>
-  </div>
 
   <div class="lh-header-container">
-    <div class="lh-header">
-      <div class="lh-metadata">
-        <div class="lh-metadata__results"><a href="" class="lh-metadata__url" target="_blank" rel="noopener"></a></div>
-        <div class="lh-config">
-          <span class="lh-config__timestamp"></span>
-          <details class="lh-config__settings-toggle">
-            <summary>
-              <span>Runtime settings</span>
-            </summary>
-            <div class="lh-env">
-              <div class="lh-env__title">Runtime environment</div>
-              <ul class="lh-env__items">
-                <li class="lh-env__item">
-                  <span class="lh-env__name">User agent:</span>
-                  <b class="lh-env__item__ua"></b>
-                </li>
-                <template id="tmpl-lh-env__items">
-                  <li class="lh-env__item">
-                    <span class="lh-env__name"></span>:
-                    <span class="lh-env__description"></span>
-                  </li>
-                </template>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </div>
-    </div>
 
-    <div class="lh-scores-wrapper">
-      <div class="lh-scores-container">
-        <div class="lh-scores-wrapper__background"></div>
-        <div class="lh-scores-wrapper__shadow"></div>
-      </div>
-    </div>
 
     <div class="lh-toolbar">
       <div class="lh-product-info">
@@ -709,22 +531,37 @@
 
       <div class="lh-toolbar__metadata">
         <a href="" class="lh-toolbar__url" target="_blank" rel="noopener"></a>
-        <span class="lh-toggle-arrow" title="See report's runtime settings"></span>
+
+        <details class="lh-config__settings-toggle">
+          <summary>
+            <span>Runtime settings</span>
+          </summary>
+          <div class="lh-env">
+            <div class="lh-env__title">Runtime environment</div>
+            <ul class="lh-env__items">
+              <li class="lh-env__item">
+                <span class="lh-env__name">User agent:</span>
+                <b class="lh-env__item__ua"></b>
+              </li>
+              <template id="tmpl-lh-env__items">
+                <li class="lh-env__item">
+                  <span class="lh-env__name"></span>:
+                  <span class="lh-env__description"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </details>
+
       </div>
     </div>
 
-    <div class="lh-export">
-      <button class="report-icon report-icon--share lh-export__button" title="Export report"></button>
-      <div class="lh-export__dropdown">
-        <a href="#" class="report-icon report-icon--print" data-action="print-summary">Print Summary</a>
-        <a href="#" class="report-icon report-icon--print" data-action="print-expanded">Print Expanded</a>
-        <a href="#" class="report-icon report-icon--copy" data-action="copy">Copy JSON</a>
-        <a href="#" class="report-icon report-icon--download" data-action="save-html">Save as HTML</a>
-        <a href="#" class="report-icon report-icon--download" data-action="save-json">Save as JSON</a>
-        <a href="#" class="report-icon report-icon--open lh-export--viewer" data-action="open-viewer">Open in Viewer</a>
-        <a href="#" class="report-icon report-icon--open lh-export--gist" data-action="save-gist">Save as Gist</a>
+    <div class="lh-scores-wrapper">
+      <div class="lh-scores-container">
+        <div class="lh-scores-wrapper__shadow"></div>
       </div>
     </div>
+
 </template>
 
 <!-- Lighthouse footer -->

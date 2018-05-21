@@ -105,26 +105,6 @@
   --lh-section-vpadding: 8px;
 }
 
-.lh-devtools .lh-header-sticky {   transform: translateY(-81px);   margin-bottom: -116px; position: relative; }
-.lh-devtools .lh-header-bg { transform: translateY(-30px); }
-.lh-devtools .lh-lighthouse {
-  transform: translate3d(calc(var(--report-content-width) / 2), calc(-100% - 30px), 0) scale(0);
-  opacity: 0;
-}
-.lh-devtools .lh-env { transform: translateY(75px); }
-.lh-devtools .lh-scores-wrapper__background { opacity: 0; transform: scaleY(0.8); }
-.lh-devtools .lh-scores-wrapper__shadow { opacity: 1; transform: scaleY(0.8); }
-.lh-devtools .lh-scorescale { opacity: 0; transform: translateY(-32px); }
-
-.lh-devtools .lh-toolbar { transform: translateY(81px); }
-.lh-devtools .lh-export { transform: translateY(81px); }
-.lh-devtools .lh-export__button { transform: scale(0.8); }
-
-.lh-devtools .lh-product-info,
-.lh-devtools .lh-toolbar__metadata { opacity: 1; font-size: var(--body-font-size); }
-.lh-devtools .lh-scores-header { padding-bottom: var(--section-indent); }
-
-
 @keyframes fadeIn {
   0% { opacity: 0;}
   100% { opacity: 0.6;}
