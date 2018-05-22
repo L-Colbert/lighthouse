@@ -135,9 +135,12 @@ class ReportRenderer {
    * @return {DocumentFragment}
    */
   _renderReport(report) {
-    const headerStickyContainer = this._dom.createElement('div', 'lh-header-short');
-    headerStickyContainer.appendChild(this._renderReportShortHeader(report));
-    const scoreContainer = this._dom.find('.lh-scores-container', headerStickyContainer);
+    // No header if it's devtools
+    if (!this._dom.document().querySelector('.lh-devtools')) {
+      const headerStickyContainer = this._dom.createElement('div', 'lh-header-sticky');
+      headerStickyContainer.appendChild(this._renderReportShortHeader(report));
+      const scoreContainer = this._dom.find('.lh-scores-container', headerStickyContainer);
+    }
 
     const container = this._dom.createElement('div', 'lh-container');
 
@@ -171,7 +174,7 @@ class ReportRenderer {
       categories.appendChild(renderer.render(category, report.categoryGroups));
     }
 
-    if (scoreHeader) {
+    if (scoreHeader && typeof scoreContainer !== 'undefined') {
       const scoreScale = this._dom.cloneTemplate('#tmpl-lh-scorescale', this._templateContext);
       scoreContainer.appendChild(scoreHeader);
       scoreContainer.appendChild(scoreScale);
@@ -180,7 +183,7 @@ class ReportRenderer {
     reportSection.appendChild(this._renderReportFooter(report));
 
     const reportFragment = this._dom.createFragment();
-    reportFragment.appendChild(headerStickyContainer);
+    // reportFragment.appendChild(headerStickyContainer);
     reportFragment.appendChild(container);
 
     return reportFragment;
