@@ -482,22 +482,6 @@
     .lh-config {
       display: flex;
     }
-    .lh-env {
-      padding: var(--default-padding) 0 var(--default-padding) calc(var(--default-padding) * 2);
-      left: 0;
-      top: 50px;
-      position: absolute;
-      width: 100%;
-      background-color: var(--header-bg-color);
-      font-size: 12px;
-      box-shadow: inset var(--report-border-color) 0px -1px 0px 1px;
-      z-index: 1;
-      white-space: initial;
-    }
-    .lh-env__items {
-      margin: var(--default-padding) 0 0 0;
-      padding-left: calc(var(--default-padding) * 2);
-    }
     .lh-config__timestamp {
       margin-right: 6px;
     }
@@ -528,26 +512,6 @@
 
       <div class="lh-toolbar__metadata">
         <a href="" class="lh-toolbar__url" target="_blank" rel="noopener"></a>
-
-        <details class="lh-config__settings-toggle">
-          <summary>&nbsp;</summary>
-          <div class="lh-env">
-            <div class="lh-env__title">Runtime environment</div>
-            <ul class="lh-env__items">
-              <li class="lh-env__item">
-                <span class="lh-env__name">User agent:</span>
-                <b class="lh-env__item__ua"></b>
-              </li>
-              <template id="tmpl-lh-env__items">
-                <li class="lh-env__item">
-                  <span class="lh-env__name"></span>:
-                  <span class="lh-env__description"></span>
-                </li>
-              </template>
-            </ul>
-          </div>
-        </details>
-
       </div>
     </div>
 

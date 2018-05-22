@@ -60,16 +60,30 @@ class ReportRenderer {
    * @return {DocumentFragment}
    */
   _renderReportHeader(report) {
-    const header = this._dom.cloneTemplate('#tmpl-lh-short-heading', this._templateContext);
-    // this._dom.find('.lh-config__timestamp', header).textContent =
-    //     Util.formatDateTime(report.fetchTime);
+    const header = this._dom.cloneTemplate('#tmpl-lh-heading', this._templateContext);
+    this._dom.find('.lh-config__timestamp', header).textContent =
+        Util.formatDateTime(report.fetchTime);
     this._dom.find('.lh-product-info__version', header).textContent = report.lighthouseVersion;
-    const url = /** @type {HTMLAnchorElement} */ (this._dom.find('.lh-metadata__url', header));
+    const metadataUrl = /** @type {HTMLAnchorElement} */ (this._dom.find('.lh-metadata__url', header));
     const toolbarUrl = /** @type {HTMLAnchorElement}*/ (this._dom.find('.lh-toolbar__url', header));
-    url.href = url.textContent = toolbarUrl.href = toolbarUrl.textContent = report.finalUrl;
+    metadataUrl.href = metadataUrl.textContent = toolbarUrl.href = toolbarUrl.textContent = report.finalUrl;
 
     return header;
   }
+
+  /**
+   * @param {ReportJSON} report
+   * @return {DocumentFragment}
+   */
+  _renderReportShortHeader(report) {
+    const header = this._dom.cloneTemplate('#tmpl-lh-short-heading', this._templateContext);
+    this._dom.find('.lh-product-info__version', header).textContent = report.lighthouseVersion;
+    const toolbarUrl = /** @type {HTMLAnchorElement}*/ (this._dom.find('.lh-toolbar__url', header));
+    toolbarUrl.href = toolbarUrl.textContent = report.finalUrl;
+
+    return header;
+  }
+
 
   /**
    * @param {ReportJSON} report
@@ -122,7 +136,7 @@ class ReportRenderer {
    */
   _renderReport(report) {
     const headerStickyContainer = this._dom.createElement('div', 'lh-header-short');
-    headerStickyContainer.appendChild(this._renderReportHeader(report));
+    headerStickyContainer.appendChild(this._renderReportShortHeader(report));
     const scoreContainer = this._dom.find('.lh-scores-container', headerStickyContainer);
 
     const container = this._dom.createElement('div', 'lh-container');
