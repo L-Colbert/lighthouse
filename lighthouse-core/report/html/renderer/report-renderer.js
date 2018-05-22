@@ -206,7 +206,7 @@ if (typeof module !== 'undefined' && module.exports) {
       scoreDisplayMode: string,
       error: boolean,
       score: (number|null),
-      details?: DetailsJSON,
+      details?: DetailsJSON|LH.Result.Audit.OpportunityDetails,
   }} AuditResultJSON
  */
 
